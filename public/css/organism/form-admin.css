@@ -1,0 +1,141 @@
+/* ================================ */
+/* CABEÇALHO DA PÁGINA (TÍTULO E VOLTAR) */
+/* (NOVO BLOCO ADICIONADO PARA O FIGMA) */
+/* ================================ */
+.page-header-container {
+    display: flex;
+    justify-content: center; /* Centraliza o título */
+    align-items: center;
+    position: relative; /* Importante para o botão 'voltar' */
+    padding: 40px 0; /* Espaço entre header e caixa branca */
+    
+    /* Garante que o container do título seja largo */
+    width: 90%; 
+    max-width: 1000px; /* Mesma largura do form */
+    margin: 0 auto; /* Centraliza */
+}
+
+.page-header-title {
+    font-size: 36px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-dark);
+    margin: 0;
+}
+
+
+/* =========================== */
+/* ORGANISMO: FORMULÁRIO ADMIN */
+/* (Estilos antigos ajustados) */
+/* =========================== */
+
+.admin-form-container {
+    max-width: 1000px;
+
+    margin: 0 auto 40px auto; 
+    padding: 40px;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-card);
+    box-shadow: var(--shadow-card);
+}
+
+.admin-form-header {
+    /* (MUDADO) Esta classe não controla mais o layout do título. */
+    /* Removemos o display:flex e o gap. */
+    margin-bottom: 40px; 
+    /* (Seu HTML antigo ainda tem essa div, então a mantemos
+       para o espaçamento, mas o ideal era removê-la do HTML) */
+}
+
+/* (MUDADO) Posição do botão voltar agora é controlada pelo .page-header-container */
+.admin-back-button {
+    position: absolute; /* Flutua */
+    left: 0; /* Gruda na esquerda do '.page-header-container' */
+    
+    /* (Estilos que ele já tem) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-admin-primary);
+    color: var(--color-white);
+    border-radius: var(--border-radius-card);
+    font-size: 24px;
+    text-decoration: none;
+    transition: filter 0.2s;
+}
+
+.admin-back-button:hover {
+    filter: brightness(1.1);
+}
+
+.admin-form-title {
+    /* (MUDADO) Este estilo não é mais usado, 
+       pois usamos .page-header-title */
+    font-size: 36px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-dark);
+}
+
+/* --- AQUI ESTÁ O GRID --- */
+.admin-form {
+    display: grid;
+    /* Duas colunas de tamanho igual (1fr) */
+    grid-template-columns: 1fr 1fr; 
+    /* Espaço entre as colunas e linhas */
+    gap: 24px; 
+}
+
+/* Itens que devem ocupar as DUAS colunas */
+.form-group--full-width {
+    grid-column: 1 / -1; /* Ocupa da linha 1 até a última (-1) */
+}
+
+.admin-form-submit {
+    grid-column: 1 / -1; /* Botão salvar também */
+    display: flex;
+    justify-content: center;/* Centraliza o botão */
+    margin-top: 24px;
+}
+
+/* ======================================= */
+/* 1. AJUSTES RESPONSIVOS (MOBILE) */
+/* ======================================= */
+@media (max-width: 768px) {
+
+    /* (NOVO) Ajusta o header da página no mobile */
+    .page-header-container {
+        padding: 30px 20px;
+        width: 100%;
+        box-sizing: border-box; /* Garante que o padding não quebre o layout */
+    }
+
+    /* (MUDADO) Alvo do título corrigido */
+    .page-header-title {
+        font-size: 28px;
+        text-align: center; /* Centraliza se o botão 'voltar' sumir */
+    }
+    
+    .admin-back-button {
+        position: static; /* Deixa de flutuar */
+        margin-right: 16px; /* Adiciona espaço entre ele e o título */
+    }
+
+    /* Ajusta a caixa branca principal */
+    .admin-form-container {
+        border: 13px solid black    ;
+        margin-top: 0; 
+        margin-bottom: 0;
+        padding: 20px; 
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    /* A MUDANÇA PRINCIPAL DO GRID */
+    .admin-form {
+        /* Muda de 2 colunas para 1 coluna */
+        grid-template-columns: 1fr;
+        
+        gap: 16px; /* Diminui o espaço entre os campos */
+    }
+}

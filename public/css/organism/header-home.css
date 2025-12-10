@@ -1,0 +1,45 @@
+
+
+/* Este é o header SÓ PARA A HOME (index.html) */
+.home-header {
+    width: 100%;
+    position: absolute; /* Sobrepõe o hero */
+    top: 0;
+    left: 0;
+    z-index: 10; /* Garante que fique na frente */
+    background-color: rgba(0, 0, 0, 0.25); /* Fundo translúcido */
+}
+
+.home-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    
+    /* Centraliza e limita a largura */
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    /* Adiciona padding para os links não colarem nas bordas */
+    padding: 0 40px; 
+    box-sizing: border-box;
+}
+
+/* Estilo para a <img> da logo dentro do header da home */
+.home-header .logo img {
+    height: 35px; /* Ajuste a altura conforme sua logo */
+    display: block;
+}
+
+.home-header .blue {
+    background-color: var(--color-footer-background);
+}
+
+.home-header-blue {
+    width: 100%;
+    position: absolute; /* Sobrepõe o hero */
+    top: 0;
+    left: 0;
+    z-index: 10; /* Garante que fique na frente */
+    background-color: var(--color-footer-background);
+}

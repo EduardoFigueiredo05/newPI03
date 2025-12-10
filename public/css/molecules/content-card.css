@@ -1,0 +1,94 @@
+.card{
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-card);
+    text-align: left;
+}
+
+.content-card{
+    padding: 16px;
+}
+
+
+.card-title{
+    color: var(--color-text-dark);   
+    padding: 8px 0;
+}
+
+.card-description{
+    color: var(--color-text-dark); 
+    padding: 8px 0;
+}
+
+.card-link{
+    color: var(--color-text-dark);
+    text-decoration: none;
+    font-size: 18px; 
+    border-radius: var(--border-radius-button);
+    text-decoration: underline;
+}
+
+.cards img{
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px 8px 0 0;
+
+}
+
+/* ++++++++++++++++++++++++++++ */
+
+.cards-container-pacotes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.card-pacotes {
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: var(--color-white);
+    text-decoration: none;
+}
+
+
+
+.img-pacote {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-pacote img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-pacotes h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin: 16px 16px 8px;
+    padding: 0;
+}
+
+.card-pacotes p {
+    font-size: 14px;
+    color: #666;
+    margin: 0 16px 16px;
+    line-height: 1.5;
+}
+
+.card-pacotes:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+    transition: all 0.3s ease;
+}

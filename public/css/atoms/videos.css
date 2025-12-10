@@ -1,0 +1,24 @@
+.video-wrapper{
+    position: relative;
+    width: 720px;
+    max-width: 720px; /* mantém largura fixa */
+    overflow: hidden;
+    padding: 0;           /* remove padding que deslocava o bloco */
+    height: 405px;        /* mesma altura do iframe */
+    margin: 0 auto;       /* centra horizontalmente dentro do container pai */
+    display: block;
+}
+
+.video-wrapper iframe{
+    display: block;
+    width: 720px;
+    height: 405px;
+    border: 0;
+    margin: 0 auto;       /* garante centralização horizontal */
+    position: relative;   /* remove posicionamento absoluto */
+    top: auto;
+    left: auto;
+    transform: none;
+}
+
+

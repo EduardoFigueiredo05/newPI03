@@ -1,0 +1,23 @@
+.home-nav {
+    display: flex;
+    gap: 32px;
+}
+
+.home-nav__link {
+    font-family: var(--font-family-main);
+    color: var(--color-white); /* Links brancos para o fundo escuro */
+    text-decoration: none;
+    font-size: var(--font-size-nav-link);
+    font-weight: var(--font-weight-medium);
+    transition: opacity 0.2s;
+    opacity: 0.85; /* Levemente transparente */
+}
+
+.home-nav__link:hover {
+    opacity: 1.0; /* Totalmente visível no hover */
+}
+
+.home-nav__link--active {
+    font-weight: var(--font-weight-semibold);
+    opacity: 1.0;
+}

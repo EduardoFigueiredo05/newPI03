@@ -1,0 +1,49 @@
+/* Importa variáveis (está ao lado do main.css) */
+@import url('variables.css');
+
+/* ÁTOMOS (estão na subpasta 'atoms/') */
+@import url('atoms/button.css');
+@import url('atoms/form.css');
+@import url('atoms/imgs.css');
+@import url('atoms/videos.css');
+@import url('atoms/package-info.css');
+/* @import url('atoms/checkbox.css'); (Você não enviou este, mas o caminho seria esse) */
+
+/* MOLÉCULAS (estão na subpasta 'molecules/') */
+@import url('molecules/travel-card.css');
+@import url('molecules/main-nav.css');
+@import url('molecules/home-nav.css');
+@import url('molecules/content-card.css');
+@import url('molecules/form-group-icon.css');
+@import url('molecules/package-images.css');
+@import url('molecules/package-tabs.css');
+
+/* ORGANISMOS (estão na subpasta 'organism/') */
+@import url('organism/header.css');
+@import url('organism/header-admin.css');
+@import url('organism/footer.css');
+@import url('organism/layout.css');
+@import url('organism/packages-section.css');
+@import url('organism/form-admin.css');
+@import url('organism/table-admin.css');
+@import url('organism/features-section.css');
+@import url('organism/hero-section.css');
+@import url('organism/header-home.css');
+@import url('organism/popup-signup.css');
+@import url('organism/package-details.css');
+@import url('organism/package-reservation.css');
+/*Samy*/
+@import url('organism/modal.css');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family-main, sans-serif);
+  color: var(--color-text-primary);
+}
+
+
+html, body {
+  height: 100%;
+}

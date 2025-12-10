@@ -1,0 +1,60 @@
+/* Organism: Package Details Section */
+
+.section-pacote-infs {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.section-pacote-infs > p {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    color: #333;
+    margin: 16px 0;
+}
+
+.section-pacote-infs > p i {
+    color: var(--color-brand-blue);
+}
+
+.Intinerario,
+.Oque-inclui,
+.Condicoes-gerais {
+    background: #f9f9f9;
+    padding: 24px;
+    border-radius: 12px;
+    margin: 24px 0;
+    line-height: 1.8;
+    color: #666;
+    display: none;
+}
+
+.Intinerario.active,
+.Oque-inclui.active,
+.Condicoes-gerais.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .section-pacote-infs {
+        padding: 24px 16px;
+    }
+
+    .section-pacote-infs > p {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,93 @@
+/* MOLÉCULA: Inputs Compactos com Ícones */
+
+.form-group-icon {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 0; /* Remove margem extra */
+}
+
+.form-label {
+    margin-bottom: 4px; /* Label colada no input */
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* O ENVELOPE (Fundamental para o ícone funcionar) */
+.input-wrapper {
+    position: relative; /* OBRIGATÓRIO */
+    width: 100%;
+    display: flex; /* Ajuda a evitar espaços fantasmas */
+    align-items: center;
+}
+
+/* O INPUT */
+.form-input {
+    width: 100%;
+    height: 44px; /* Altura reduzida (era 56px) */
+    
+    /* Espaços para os ícones não ficarem em cima do texto */
+    padding-left: 40px; 
+    padding-right: 12px;
+    
+    border: 1px solid #DEE2E6;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    font-family: inherit;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+}
+
+/* ÍCONE NA ESQUERDA (Padrão) */
+.input-icon {
+    position: absolute; /* OBRIGATÓRIO */
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente exato */
+    
+    font-size: 18px;
+    color: #9CA3AF;
+    pointer-events: none;
+    z-index: 10;
+    
+    /* Garante que o ícone não tenha altura zero */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ÍCONE NA DIREITA (Lápis) */
+.input-icon.right {
+    left: auto; /* Anula a esquerda */
+    right: 12px; /* Cola na direita */
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/* AJUSTE DO INPUT QUANDO TEM ÍCONE NA DIREITA */
+.input-wrapper.has-right-icon .form-input {
+    padding-left: 12px;
+    padding-right: 40px;
+}
+
+/* ESTILOS DE READONLY (Cinza) */
+.form-input:disabled, 
+.form-input[readonly] {
+    background-color: #F3F4F6;
+    color: #6B7280;
+}
+
+/* ARQUIVO: _form-group-icon.css */
+
+/* ... (código anterior do .form-input) ... */
+
+/* AJUSTE CRÍTICO: Quando tem ícone na direita (Lápis), 
+   precisamos manter o espaço na esquerda também! */
+.input-wrapper.has-right-icon .form-input {
+    padding-left: 48px;  /* <--- MUDEI DE 12px PARA 48px (Espaço para o ícone da esquerda) */
+    padding-right: 48px; /* Espaço para o ícone da direita (Lápis) */
+}
+
+/* ... (resto do código) ... */

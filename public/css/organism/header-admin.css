@@ -1,0 +1,72 @@
+/* ======================================= */
+/* ORGANISMO: HEADER ADMIN (Versão Corrigida) */
+/* ======================================= */
+
+.admin-header {
+    width: 100%;
+    /* Corrigindo a variável de cor (provavelmente era 'color-admin-primary') */
+    background-color: var(--color-background-content); 
+    padding: 0 40px;
+    box-sizing: border-box;
+
+    /* REMOVIDO: 'display: flex', 'justify-content', 'align-items'.
+      Este é apenas o container da cor de fundo.
+    */
+}
+
+.admin-header-container {
+    display: flex; /* <-- SÓ AQUI DEVE TER FLEX */
+    
+    /* Alinha o logo à esquerda, o ícone à direita e os botões no meio */
+    justify-content: space-between; 
+    
+    align-items: center; /* Alinha tudo verticalmente ao centro */
+    height: 90px;
+    
+    /* Garante que o container interno use 100% da largura do header */
+    width: 100%;
+    max-width: 1200px; /* Define uma largura máxima (opcional) */
+    margin: 0 auto; /* Centraliza o container (opcional) */
+}
+
+.admin-header__logo {
+    color: var( --color-text-primary);
+    font-size: 32px;
+    font-weight: var(--font-weight-bold);
+}
+
+.admin-header__nav {
+    display: flex;
+    gap: 16px;
+    /* 'space-between' no pai vai posicionar este bloco */
+}
+
+.admin-nav-button {
+    padding: 12px 24px;
+    /* Corrigindo para o estilo do Figma (transparente) */
+    background-color: var(--color-brand-cta);
+    border: 1px solid var(--color-brand-cta);
+    border-radius: var(--border-radius-button);
+    color: var(--color-white);
+    font-family: var(--font-family-main);
+    font-weight: var(--font-weight-medium);
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.admin-nav-button:hover {
+    background-color: var(--color-brand-cta);
+}
+
+.admin-user-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    /* Corrigindo para o estilo do Figma (transparente) */
+    background-color: var(--color-brand-cta);
+    border-radius: 12px;
+    cursor: pointer;
+}

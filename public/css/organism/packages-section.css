@@ -1,0 +1,35 @@
+/* ================================ */
+/* CABEÇALHO DA PÁGINA (TÍTULO "Meus Pacotes") */
+/* ================================ */
+.page-header-container {
+    display: flex;
+    justify-content: center; /* Centraliza o título */
+    align-items: center;
+    padding: 40px 0; /* Espaço entre header e caixa branca */
+    
+    width: 90%; 
+    max-width: 900px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza */
+}
+
+.page-header-title {
+    font-size: 36px;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-dark);
+    margin: 0;
+}
+
+/* ================================ */
+/* O CONTAINER BRANCO */
+/* ================================ */
+.inner-content-box {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 40px;
+    
+    /* Centraliza a caixa branca */
+    max-width: 900px; 
+    margin: 0 auto 40px auto; /* Centralizado, com margem em baixo */
+    box-sizing: border-box;
+}

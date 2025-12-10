@@ -1,0 +1,69 @@
+/* MOLÉCULA: Card de Viagem */
+.card-wrapper { width: 100%; max-width: 730px; margin: 0 auto; display: flex; flex-direction: column; gap: 8px; }
+.travel-card { width: 100%; display: flex; align-items: center; gap: 16px; }
+.travel-card__body {
+    width: 100%;
+    height: 190px;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-card);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    /* --- A MÁGICA DO GRID COMEÇA AQUI --- */
+    display: grid;
+    /* Define 3 colunas: Imagem(250px), Conteúdo(1fr = flexível), Botão(auto) */
+    grid-template-columns: 250px 1fr auto; 
+    align-items: center; /* Centraliza verticalmente */
+    
+    /* Remove o 'position: relative' que usamos antes */
+}
+
+/* O .btn--excluir precisa de um pequeno ajuste, 
+  pois não é mais 'position: absolute'.
+  Adicione este estilo para espaçá-lo.
+*/
+.btn--excluir {
+    margin-right: 24px; /* Espaçamento da borda direita */
+    /* Remova o 'position: static' do @media anterior se você o adicionou */
+}
+
+/* O HTML permanece o mesmo que sugeri (com o botão no final):
+<div class="travel-card__body">
+    <div class="travel-card__image-container">...</div>
+    <div class="travel-card__content">...</div>
+    <button class="btn btn--danger btn--excluir">...</button>
+</div>
+*/
+.travel-card__body:hover { border-color: var(--color-brand-blue); box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.12); }
+.travel-card__image-container { width: 250px; height: 100%; flex-shrink: 0; }
+.travel-card__image-container img { width: 100%; height: 100%; object-fit: cover; }
+.travel-card__content { padding: 24px; display: flex; flex-direction: column; align-items: flex-start; width: 100%; }
+.travel-card__title { color: var(--color-text-primary); font-size: 18px; font-weight: var(--font-weight-semibold); margin-bottom: 8px; }
+.travel-card__description { color: var(--color-text-secondary); font-size: var(--font-size-body); font-weight: var(--font-weight-regular); line-height: 1.6; }
+.card-status { display: flex; padding-left: calc(20px + 16px); }
+.card-status .badge { display: inline-flex; align-items: center; gap: 6px; color: var(--color-badge-text); font-size: var(--font-size-badge); font-weight: var(--font-weight-medium); }
+
+@media (max-width: 768px) {
+    .travel-card__body {
+        /* AQUI ESTÁ A MUDANÇA */
+        /* Dizemos ao grid para ter apenas 1 coluna. */
+        grid-template-columns: 1fr; 
+        
+        height: auto; /* Altura automática */
+    }
+
+    .travel-card__image-container {
+        width: 100%; 
+        height: 180px; 
+    }
+    
+    .btn--excluir {
+        /* No mobile, o botão fica melhor com 100% de largura
+           e com margem interna */
+        width: 90%; /* Ocupa quase 100% */
+        margin: 16px auto; /* Centraliza e dá espaço */
+        box-sizing: border-box;
+    }
+}

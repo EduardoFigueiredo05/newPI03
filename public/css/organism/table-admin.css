@@ -1,0 +1,111 @@
+/* ======================================= */
+/* ORGANISMO: TABELA ADMIN */
+/* ======================================= */
+
+.admin-table-wrapper {
+    /* A caixa branca que segura a tabela */
+    width: 100%;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-card);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+    overflow: hidden; /* Para o header da tabela encaixar */
+    margin-bottom: 32px; /* Espaço entre as tabelas */
+}
+
+.admin-table-header {
+    /* A barra de título ("View Pacotes", "View Usuários") */
+    padding: 16px 24px;
+    background-color: var(--color-admin-primary); /* Azul/Roxo do header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-table-header h3 {
+    font-size: 18px;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-white);
+    margin: 0;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse; /* Remove espaço entre células */
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 16px 24px;
+    text-align: left;
+    font-size: var(--font-size-body);
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: middle; /* Garante alinhamento vertical */
+}
+
+.admin-table th {
+    /* Cabeçalho da tabela (Nome, Email, Ações) */
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    background-color: var(--color-background-light); /* Cinza claro */
+}
+
+.admin-table tr:last-child td {
+    border-bottom: none; /* Remove a borda da última linha */
+}
+
+/* Links azuis dentro da tabela */
+.admin-table-link {
+    color: var(--color-brand-blue);
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+}
+.admin-table-link:hover {
+    text-decoration: underline;
+}
+
+/* Célula de Ações (Ícones) */
+.admin-table-actions {
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+    gap: 16px; /* Espaço entre os ícones */
+    align-items: center;
+}
+
+.btn-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--border-radius-badge);
+    border: 1px solid var(--color-border);
+    background-color: var(--color-white);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    padding: 0; /* Remove padding extra */
+}
+.btn-action:hover {
+    background-color: var(--color-background-light);
+}
+
+/* --- ÍCONES DE AÇÃO (CORES CORRIGIDAS) --- */
+
+/* ÍCONE EDITAR (LÁPIS) - Cinza por padrão */
+.btn-action--edit svg path {
+    fill: var(--color-text-secondary); /* Cinza */
+    transition: fill 0.2s;
+}
+.btn-action--edit:hover svg path {
+    fill: var(--color-brand-blue); /* Azul no hover */
+}
+
+/* ÍCONE DELETAR (LIXEIRA) - Vermelho por padrão */
+.btn-action--delete svg path {
+    fill: var(--color-danger); /* <-- CORRIGIDO: Vermelho */
+    transition: filter 0.2s;
+}
+.btn-action--delete:hover svg path {
+    filter: brightness(0.8); /* Escurece um pouco no hover */
+}

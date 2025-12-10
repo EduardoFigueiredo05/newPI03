@@ -1,0 +1,44 @@
+/* Molecules: Package Navigation Tabs */
+
+.section-pacote-infs-button {
+    display: flex;
+    gap: 12px;
+    margin: 32px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.section-pacote-infs-button button {
+    padding: 12px 24px;
+    background: transparent;
+    border: 2px solid var(--color-brand-blue);
+    color: var(--color-brand-blue);
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.section-pacote-infs-button button:hover {
+    background: var(--color-brand-blue);
+    color: var(--color-white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(93, 95, 239, 0.3);
+}
+
+.section-pacote-infs-button button.active {
+    background: var(--color-brand-blue);
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .section-pacote-infs-button {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .section-pacote-infs-button button {
+        width: 100%;
+    }
+}

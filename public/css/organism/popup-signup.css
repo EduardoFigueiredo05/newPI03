@@ -1,0 +1,117 @@
+/* ORGANISMO: Pop-up Compacto */
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 10px; /* Pequeno respiro nas bordas */
+}
+
+.popup-container {
+    position: relative;
+    background: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.3);
+    
+    /* --- TAMANHO COMPACTO --- */
+    width: 100%;
+    max-width: 500px; /* Reduzido de 720px para 500px */
+    max-height: 90vh; /* Nunca ultrapassa 90% da altura da tela */
+    
+    padding: 30px 40px; /* Padding reduzido */
+    box-sizing: border-box;
+    
+    /* ROLAGEM INVISÍVEL */
+    overflow-y: auto; /* Permite rolar */
+    scrollbar-width: none; /* Esconde barra no Firefox */
+    -ms-overflow-style: none; /* Esconde barra no IE/Edge */
+}
+
+/* Esconde barra no Chrome/Safari */
+.popup-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Ajustes de Espaçamento Interno */
+.popup-header {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 0; /* Garante que não tenha espaço extra em cima */
+}
+
+/* ARQUIVO: _popup-signup.css */
+
+.popup-logo {
+    /* Mudei de 120px para 200px. 
+       Você pode testar 180px ou 220px até achar o tamanho ideal */
+    max-width: 200px !important; 
+    
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Mantém centralizado */
+    
+    /* Dica: Se ficar muito colado no texto de baixo, aumente aqui: */
+    margin-bottom: -10px; 
+}
+
+.btn-close {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 32px;
+    height: 32px;
+    background-color: #4E61F6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Menos espaço entre os inputs */
+}
+
+.button--danger {
+    background-color: #FF5F57;
+    color: white;
+    font-weight: bold;
+    border: none;
+    margin-top: 10px;
+    padding: 12px;
+}
+
+.popup-footer-text {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+}
+
+/* ARQUIVO: _popup-signup.css */
+
+/* ... (código anterior) ... */
+
+/* FORÇAR ÍCONES BRANCOS NOS BOTÕES */
+
+/* 1. Ícone do Botão Fechar (X) */
+.btn-close .material-symbols-outlined {
+    color: #FFFFFF !important;
+}
+
+/* 2. Ícone do Botão Sair (Portinha) */
+.button--danger .material-symbols-outlined {
+    color: #FFFFFF !important;
+}

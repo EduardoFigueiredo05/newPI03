@@ -1,0 +1,57 @@
+/* Arquivo: css/variables.css (Versão Corrigida e Limpa) */
+
+:root {
+  /* ---- CORES ---- */
+  --color-background-section: #EDEFFE; /* Cinza claro */
+  --color-background: #F8F9FA; /* Cinza bem claro (Fundo de inputs) */
+  --color-white: #ffff;
+  --color-text-dark: #131927;
+  --color-text-primary: #131927;
+  --color-text-secondary: #404040;
+  --color-text-third: #FFFF;
+  --color-brand-blue: #364FC7;
+  --color-brand-cta: #4E61F6;      /* Cor do botão de usuário no header */
+  --color-footer-background: #4E61F6; /* Lilás do Rodapé */
+  --color-border: #DEE2E6;
+  --color-danger: #e74c3c;
+
+  /* ---- FUNDO LILÁS DA PÁGINA ---- */
+  --color-background-content: #EDEFFE; /* <-- ESTA É A CORRETA */
+
+  /* ---- VARIÁVEIS DA PÁGINA ADM ---- */
+  --color-admin-primary: #5850E6; /* Azul/Roxo do header e botões adm */
+  --color-success-cta: #1BB079;    /* Verde do botão Salvar */
+  --color-input-border: #CED4DA;
+  --color-input-bg: #F8F9FA;
+
+  /* Cores de componentes específicos */
+  --color-badge-text: #00875F;
+  --color-badge-bg: #E6F7F2;
+
+  /* ---- SOMBRAS ---- */
+  --shadow-card: 0px 4px 16px 0px rgba(0, 0, 0, 0.08);
+
+  /* ---- TIPOGRAFIA ---- */
+  --font-family-main: 'Inter', sans-serif;
+  
+  /* Tamanhos de Fonte */
+  --font-size-h1: 48px;
+  --font-size-card-title: 20px;
+  --font-size-nav-link: 16px;
+  --font-size-body: 14px;
+  --font-size-link: 16px;
+  --font-size-badge: 12px;
+
+  /* Pesos da Fonte */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* ---- BORDAS ---- */
+  --border-radius-card: 8px;
+  --border-radius-badge: 4px;
+  --border-radius-button: 12px; /* Arredondamento padrão para botões maiores (header) */
+
+  /* ---- ESPAÇAMENTOS ---- */
+}

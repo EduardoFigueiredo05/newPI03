@@ -1,0 +1,129 @@
+.img-block-1{
+    height: 720px;
+    width: 480px;
+    border-radius: var(--border-radius-card);
+    object-fit: cover;
+}
+
+.img-block-2{
+    height: 358px;
+    width: 480px;
+    flex-wrap: nowrap;
+    border-radius: var(--border-radius-card);
+    object-fit: cover;
+}
+
+.imgs-blocks{
+    display: flex;
+    gap: 16px;
+}
+
+.imgs-block-2{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 480px; /* mantém a mesma largura das imagens pequenas */
+    box-sizing: border-box;
+}
+
+.img-overlay{
+    position: relative;
+    display: inline-block; 
+    width: 480px;
+    height: 720px;          
+    border-radius: var(--border-radius-card);
+    overflow: hidden;      
+}
+
+.img-overlay--small{
+    width: 480px;
+    height: 358px;
+}
+ 
+.img-overlay img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.img-overlay__text{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;             
+    padding: 20px;
+    color: #fff;
+    z-index: 2;
+    background: linear-gradient(transparent, rgb(0, 0, 0));
+}
+
+.img-overlay__text h3{
+    color: var(--color-white);
+}
+
+.img-overlay__text p{
+    color: var(--color-white);
+}
+
+/* ...existing code... */
+
+.img-map{
+    width: 100%; 
+}
+
+.img-map-wrapper{
+    position: relative;
+    width: 100%;
+    height: 500px;        
+    overflow: hidden;
+    display: block;
+}
+
+.img-map-wrapper img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     
+    display: block;
+}
+
+.img-map-overlay{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 24px;                  
+    width: calc(100% - 40px);      
+    text-align: center;
+    padding: 0 0 32px 0;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+.img-map-overlay h1{ 
+    color: var(--color-white); 
+}
+.img-map-overlay p { 
+    color: var(--color-white); 
+}
+
+.img-block-1-pacotes{
+    height: 480px;
+    width: 480px;
+    border-radius: var(--border-radius-card);
+    object-fit: cover;
+}
+
+.img-block-2-pacotes{
+    height:236px;
+    width: 420px;
+    flex-wrap: nowrap;
+    border-radius: var(--border-radius-card);
+    object-fit: cover;
+}
+
+.img-overlay-pacotes{
+    position: relative;
+    display: inline-block;    
+    border-radius: var(--border-radius-card);
+    overflow: hidden;      
+}

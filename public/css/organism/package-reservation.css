@@ -1,0 +1,82 @@
+/* Organism: Package Reservation Section */
+
+.reserve-now {
+    background: var(--color-background-section);
+    padding: 60px 20px;
+    text-align: center;
+    color: #fff;
+    margin-top: 60px;
+    margin: 0 64px 64px 64px;
+}
+
+.reserve-now h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    margin: 0 0 32px;
+}
+
+.reserve-now > p:first-of-type {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 16px 0 8px;
+    color: #28a745;
+}
+
+.reserve-now > p:nth-of-type(2) {
+    font-size: 18px;
+    margin: 0 0 32px;
+    opacity: 0.9;
+}
+
+.reserve-now button {
+    background: var(--color-brand-blue);
+    color: var(--color-white);
+    border: none;
+    padding: 16px 48px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 32px;
+}
+
+.reserve-now button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.reserve-now > p:last-of-type,
+.reserve-now > p:nth-last-of-type(1) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 16px;
+    margin: 16px auto;
+    max-width: 600px;
+}
+
+.reserve-now > p i {
+    font-size: 24px;
+}
+
+@media (max-width: 768px) {
+    .reserve-now {
+        padding: 40px 16px;
+    }
+
+    .reserve-now > p:first-of-type {
+        font-size: 36px;
+    }
+
+    .reserve-now button {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .reserve-now > p:last-of-type,
+    .reserve-now > p:nth-last-of-type(1) {
+        font-size: 14px;
+    }
+}

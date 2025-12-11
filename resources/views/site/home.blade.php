@@ -58,6 +58,13 @@
                 <h3>Experiências Únicas</h3>
                 <p>Criamos memórias que duram para sempre.</p>
             </div>
+            <div class="card" style="align-items: center; text-align: center; padding: 40px;">
+                <span class="material-icons" style="font-size: 40px; color: var(--primary); margin-bottom: 16px;">star</span>
+                <h3>Confiança</h3>
+                <p>Compromisso com a qualidade e satisfação do cliente.</p>
+            </div>
+
+        
         </div>
     </section>
 

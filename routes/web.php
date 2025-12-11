@@ -6,6 +6,7 @@ use App\Http\Controllers\Site\PackageController;
 use App\Http\Controllers\Site\BookingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AdminPackageController;
+use App\Http\Controllers\Admin\AdminContinentController;
 use Illuminate\Support\Facades\Route;
 
 // ==============================================================================
@@ -70,6 +71,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/pacotes/{id}/editar', [AdminPackageController::class, 'edit'])->name('packages.edit');
     Route::put('/pacotes/{id}', [AdminPackageController::class, 'update'])->name('packages.update'); // PUT é para atualização
     Route::delete('/pacotes/{id}', [AdminPackageController::class, 'destroy'])->name('packages.destroy'); // DELETE é para exclusão
+    Route::get('/continentes/novo', [AdminContinentController::class, 'create'])->name('continents.create');
+    Route::post('/continentes/salvar', [AdminContinentController::class, 'store'])->name('continents.store');
+    Route::get('/continentes/{id}/editar', [AdminContinentController::class, 'edit'])->name('continents.edit');
+    Route::put('/continentes/{id}', [AdminContinentController::class, 'update'])->name('continents.update');
+    Route::delete('/continentes/{id}', [AdminContinentController::class, 'destroy'])->name('continents.destroy');
 });
 
 

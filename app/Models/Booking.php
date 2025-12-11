@@ -9,11 +9,11 @@ class Booking extends Model
 {
     use HasFactory;
 
-    // AQUI ESTÁ A CORREÇÃO: Liberando os campos para gravação
+    // ADICIONE ESTA PARTE PARA CORRIGIR O ERRO
     protected $fillable = [
-        'user_id', 
-        'package_id', 
-        'status'
+        'user_id',
+        'package_id',
+        'status',
     ];
 
     public function user()

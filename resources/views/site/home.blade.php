@@ -7,31 +7,13 @@
     <section class="hero-section">
         <div class="hero-content">
             <h1 class="hero-title">Descubra o Mundo com a World Tuor</h1>
-            <p class="hero-subtitle">Explore destinos incríveis e viva experiências inesquecíveis. Na World Tuor, sua próxima grande aventura começa com uma simples reserva.</p>                
+            <p class="hero-subtitle">Explore destinos incríveis e viva experiências inesquecíveis.</p>                
             <a href="{{ route('packages.index') }}" class="button button--primary">Ver Pacotes</a>
         </div>
     </section>
 
-    <section class="features-section">
-        <h2 class="features-title">POR QUE RESERVAR COM A WORLD TUOR</h2>
-        <div class="features-grid">
-            <div class="feature-item">
-                <h3 class="feature-item__title">Destinos Selecionados</h3>
-                <p class="feature-item__text">Nossos especialistas escolheram a dedo os melhores roteiros nacionais e internacionais.</p>
-            </div>
-            <div class="feature-item">
-                <h3 class="feature-item__title">Reserva Fácil</h3>
-                <p class="feature-item__text">Sem burocracia. Nosso sistema de reserva acadêmico é simples.</p>
-            </div>
-            <div class="feature-item">
-                <h3 class="feature-item__title">Viva a Experiência</h3>
-                <p class="feature-item__text">Mais do que uma viagem, oferecemos a chance de criar memórias inesquecíveis.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="features-section cards-container">
-        <h2 class="hero-title" style="color: var(--color-white); margin-bottom: 32px;">Nossos Melhores Pacotes</h2>
+    <section class="cards-container">
+        <h2 style="text-align: center; margin-bottom: 40px;">Nossos Melhores Pacotes</h2>
         
         <div class="cards">
             @forelse($featuredPackages as $package)
@@ -40,7 +22,6 @@
                         <img 
                             src="{{ asset($package->image_main) }}" 
                             alt="{{ $package->title }}" 
-                            style="width: 100%; height: 100%; object-fit: cover;"
                             onerror="this.removeAttribute('onerror'); this.src='https://placehold.co/600x400?text=Sem+Imagem';"
                         > 
                     </div>
@@ -54,56 +35,29 @@
                     </div>
                 </div>
             @empty
-                <p style="color: white; text-align: center; width: 100%;">Nenhum pacote em destaque no momento.</p>
+                <p style="text-align: center; width: 100%; grid-column: 1/-1;">Nenhum pacote em destaque no momento.</p>
             @endforelse
         </div>
     </section>
 
-    <section class="atrative-section">
-        <div class="atrative-section-top">
-            <h2 class="black-title">Como nosso sistema funciona</h2>
-            <p>Focamos na experiência de descoberta. Sem pagamentos, apenas reservas.</p>
-        </div>
-        
-        <div class="atrative-section-cards cards">
-            <div class="atrative-card">
-                <h3 class="atrative-card-title">1. Escolha</h3>
-                <p class="card-text">Navegue por destinos incríveis.</p>
+    <section class="cards-container" style="background-color: #f8f9fa;">
+        <h2 class="features-title">Por que viajar com a gente?</h2>
+        <div class="cards">
+            <div class="card" style="align-items: center; text-align: center; padding: 40px;">
+                <span class="material-icons" style="font-size: 40px; color: var(--primary); margin-bottom: 16px;">public</span>
+                <h3>Destinos Selecionados</h3>
+                <p>Roteiros escolhidos a dedo pelos nossos especialistas.</p>
             </div>
-            <div class="atrative-card">
-                <h3 class="atrative-card-title">2. Reserve</h3>
-                <p class="card-text">Garanta sua vaga rapidamente.</p>
+            <div class="card" style="align-items: center; text-align: center; padding: 40px;">
+                <span class="material-icons" style="font-size: 40px; color: var(--primary); margin-bottom: 16px;">verified</span>
+                <h3>Reserva Fácil</h3>
+                <p>Sistema acadêmico simplificado para sua experiência.</p>
             </div>
-            <div class="atrative-card">
-                <h3 class="atrative-card-title">3. Viaje</h3>
-                <p class="card-text">Prepare-se para a aventura.</p>
+            <div class="card" style="align-items: center; text-align: center; padding: 40px;">
+                <span class="material-icons" style="font-size: 40px; color: var(--primary); margin-bottom: 16px;">favorite</span>
+                <h3>Experiências Únicas</h3>
+                <p>Criamos memórias que duram para sempre.</p>
             </div>
-        </div>
-
-        <div class="atrative-imgs">
-            <h2 class="black-title">Conte com a nossa experiência</h2>
-            <div class="imgs-blocks">
-                <div class="img-overlay">
-                    <img class="img-block-1" src="{{ asset('img/exemplo-1.jpg') }}" alt="Experiência 1"
-                         onerror="this.removeAttribute('onerror'); this.src='https://placehold.co/480x720?text=Experiencia+1';">
-                    
-                    <div class="img-overlay__text">
-                        <h3>Descubra o mundo</h3>
-                        <p>Um pôr do sol de cada vez.</p>
-                    </div>
-                </div>
-                <div class="imgs-block-2">
-                    <div class="img-overlay img-overlay--small">
-                        <img class="img-block-2" src="{{ asset('img/exemplo-2.jpg') }}" alt="Experiência 2"
-                             onerror="this.removeAttribute('onerror'); this.src='https://placehold.co/480x358?text=Experiencia+2';">
-                    </div>
-                    <div class="img-overlay img-overlay--small">
-                        <img class="img-block-2" src="{{ asset('img/exemplo-3.jpg') }}" alt="Experiência 3"
-                             onerror="this.removeAttribute('onerror'); this.src='https://placehold.co/480x358?text=Experiencia+3';">
-                    </div>
-                </div>
-            </div>
-            <button class="btn-check-more" onclick="alert('Página de contato em construção!')">Entre em Contato</button>
         </div>
     </section>
 

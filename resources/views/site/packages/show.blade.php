@@ -5,83 +5,77 @@
 @section('content')
 
     <section class="section-img-pacote">
-        <div class="imgs-blocks">
-            <div class="img-overlay-pacotes">
-                <img class="img-block-1-pacotes" src="{{ asset($package->image_main) }}" alt="{{ $package->title }}">
-            </div>
-            
-            <div class="imgs-block-2">
-                <div class="img-overlay-pacotes">
-                   <img class="img-block-2-pacotes" src="{{ asset('img/exemplo-2.jpg') }}" alt="Detalhe">
-                </div>
-                <div class="img-overlay-pacotes">
-                   <img class="img-block-2-pacotes" src="{{ asset('img/exemplo-3.jpg') }}" alt="Detalhe">
-                </div>
-            </div>
-        </div>
-        <div>
-            <h1 class="hero-title-secndary">{{ $package->title }}</h1>
-            <p class="hero-subtitle-secndary">{{ $package->subtitle }}</p>
+        <img src="{{ asset($package->image_main) }}" alt="{{ $package->title }}" onerror="this.src='https://placehold.co/1200x800?text=Imagem+Pacote'">
+        <div class="hero-title-secndary">
+            <h1>{{ $package->title }}</h1>
+            <p style="font-size: 1.2rem; opacity: 0.9;">{{ $package->subtitle }}</p>
         </div>
     </section>
 
-    <section class="section-pacote-infs" x-data="{ activeTab: 'itinerary' }">
+    <section class="section-pacote-infs" x-data="{ activeTab: 'itinerary' }" style="padding-bottom: 120px;">
         
-        <p class="package-duration">
-            <span class="material-icons">calendar_today</span> 
-            {{ $package->days }} dias / {{ $package->nights }} noites
-        </p>
+        <div style="display: flex; gap: 20px; margin-bottom: 30px; color: #666; font-weight: 500;">
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <span class="material-icons" style="color: var(--primary);">calendar_today</span>
+                {{ $package->days }} Dias
+            </div>
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <span class="material-icons" style="color: var(--primary);">nights_stay</span>
+                {{ $package->nights }} Noites
+            </div>
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <span class="material-icons" style="color: var(--primary);">public</span>
+                {{ $package->country->name ?? 'Destino Internacional' }}
+            </div>
+        </div>
 
         <div class="section-pacote-infs-button">
-            <button type="button" 
-                @click="activeTab = 'itinerary'" 
-                :class="{ 'active': activeTab === 'itinerary' }">
+            <button type="button" @click="activeTab = 'itinerary'" :class="{ 'active': activeTab === 'itinerary' }">
                 Itinerário
             </button>
-            <button type="button" 
-                @click="activeTab = 'included'" 
-                :class="{ 'active': activeTab === 'included' }">
+            <button type="button" @click="activeTab = 'included'" :class="{ 'active': activeTab === 'included' }">
                 O que inclui
             </button>
-            <button type="button" 
-                @click="activeTab = 'conditions'" 
-                :class="{ 'active': activeTab === 'conditions' }">
+            <button type="button" @click="activeTab = 'conditions'" :class="{ 'active': activeTab === 'conditions' }">
                 Condições
             </button>
         </div>
 
-        <div x-show="activeTab === 'itinerary'" class="Intinerario" style="display: block">
-            <p>{{ $package->details_itinerary ?? 'Roteiro a definir.' }}</p>
+        <div x-show="activeTab === 'itinerary'" style="line-height: 1.8; color: #444;">
+            <h3 style="margin-bottom: 15px;">Roteiro da Viagem</h3>
+            <p>{!! nl2br(e($package->details_itinerary ?? 'Roteiro detalhado em breve.')) !!}</p>
         </div>
 
-        <div x-show="activeTab === 'included'" class="Oque-inclui" style="display: block">
-            <p>{{ $package->details_included ?? 'Consulte inclusões.' }}</p>
+        <div x-show="activeTab === 'included'" style="display: none; line-height: 1.8; color: #444;" x-show.important="activeTab === 'included'">
+            <h3 style="margin-bottom: 15px;">Inclusões</h3>
+            <p>{!! nl2br(e($package->details_included ?? 'Consulte itens inclusos.')) !!}</p>
         </div>
 
-        <div x-show="activeTab === 'conditions'" class="Condicoes-gerais" style="display: block">
-            <p>{{ $package->details_conditions ?? 'Consulte condições.' }}</p>
+        <div x-show="activeTab === 'conditions'" style="display: none; line-height: 1.8; color: #444;" x-show.important="activeTab === 'conditions'">
+            <h3 style="margin-bottom: 15px;">Condições Gerais</h3>
+            <p>{!! nl2br(e($package->details_conditions ?? 'Consulte as regras de cancelamento.')) !!}</p>
         </div>
+
     </section>
 
-    <section class="reserve-now">
-        <h2>Reserve agora sua viagem!</h2>
-        
-        <p>R$ {{ number_format($package->price, 2, ',', '.') }}</p>
-        <p>por pessoa</p>
+    <div class="reserve-now">
+        <div>
+            <span style="display: block; font-size: 0.9rem; color: #666;">Preço por pessoa</span>
+            <h2 style="color: var(--primary); margin: 0;">R$ {{ number_format($package->price, 2, ',', '.') }}</h2>
+        </div>
 
         @auth
-            <form action="{{route('bookings.store',$package->id)}}" method="POST">
+            <form action="{{ route('bookings.store', $package->id) }}" method="POST">
                 @csrf
-                <button type="submit">Reservar agora</button>
+                <button type="submit" class="button--primary" style="padding: 12px 30px; font-size: 1.1rem; border-radius: 50px;">
+                    Reservar Agora
+                </button>
             </form>
         @else
-            <a href="{{ route('login') }}">
-                <button type="button">Faça Login para Reservar</button>
-            </a>
+            <button type="button" onclick="openLoginModal()" class="button--primary" style="padding: 12px 30px; font-size: 1.1rem; border-radius: 50px;">
+                Login para Reservar
+            </button>
         @endauth
-
-        <p><i class="material-icons">check</i>Cancelamento Grátis (até 7 dias antes)</p>
-        <p><i class="material-icons">chat</i>Fale com um especialista</p>
-    </section>
+    </div>
 
 @endsection

@@ -1,0 +1,285 @@
+/* =========================================
+   1. IMPORTAÇÕES E VARIÁVEIS
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
+
+:root {
+    /* Cores da Marca */
+    --color-primary: #364FC7;       /* Azul Principal */
+    --color-primary-hover: #4263eb; /* Azul Claro (Hover) */
+    --color-dark: #111827;          /* Texto Escuro / Títulos */
+    --color-text: #4B5563;          /* Texto Corpo */
+    --color-bg: #F3F4F6;            /* Fundo Geral */
+    --color-white: #FFFFFF;
+    --color-danger: #ef4444;        /* Vermelho Erro/Excluir */
+    --color-success: #10b981;       /* Verde Sucesso */
+
+    /* Espaçamentos e Bordas */
+    --radius: 12px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   2. RESET E BASICS
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-dark);
+    font-weight: 600;
+}
+
+main {
+    flex: 1; /* Empurra o footer para baixo */
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* =========================================
+   3. HEADER E NAVEGAÇÃO
+   ========================================= */
+.home-header, .home-header-blue, .admin-header {
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Header Transparente (Home) */
+.home-header {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    position: absolute; /* Fica em cima da imagem */
+    width: 100%;
+}
+
+/* Header Azul (Outras páginas) */
+.home-header-blue, .admin-header {
+    background: var(--color-primary);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+}
+
+.home-nav, .admin-header__nav {
+    display: flex;
+    gap: 32px;
+}
+
+.home-nav__link, .admin-nav-button {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.home-nav__link:hover { color: #fff; }
+
+.user-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.user-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.user-button:hover { background: rgba(255, 255, 255, 0.4); }
+
+/* =========================================
+   4. HERO SECTION (Banner Principal)
+   ========================================= */
+.hero-section {
+    height: 80vh; /* Ocupa 80% da tela */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../img/exemplo-1.jpg'); /* Fundo padrão */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 { color: white; font-size: 3rem; margin-bottom: 16px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+.hero-content p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 32px auto; }
+
+/* =========================================
+   5. CARDS DE PACOTES
+   ========================================= */
+.cards-container {
+    padding: 60px 10%;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 32px;
+}
+
+.card {
+    background: var(--color-white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.img-card { height: 220px; overflow: hidden; }
+.img-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+.card:hover .img-card img { transform: scale(1.05); }
+
+.content-card { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+.card-title { font-size: 1.25rem; margin-bottom: 8px; }
+.card-description { flex: 1; margin-bottom: 20px; font-size: 0.9rem; }
+
+/* Botões */
+.button {
+    display: inline-flex;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+    font-size: 0.9rem;
+    align-items: center;
+    gap: 8px;
+}
+
+.button--primary, .card-link {
+    background: var(--color-primary);
+    color: white;
+    text-decoration: none;
+}
+.card-link { display: inline-block; padding: 10px 24px; border-radius: 50px; text-align: center;}
+
+.button--primary:hover, .card-link:hover { background: var(--color-primary-hover); transform: translateY(-2px); }
+
+.button--danger { background: #fee2e2; color: #991b1b; }
+.button--danger:hover { background: #fecaca; }
+
+/* =========================================
+   6. ADMIN & TABLES
+   ========================================= */
+.container-admin { padding: 40px 5%; max-width: 1200px; margin: 0 auto; }
+.page-header-container { margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
+
+.admin-table-wrapper {
+    background: white;
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-sm);
+}
+
+.admin-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+.admin-table th { text-align: left; padding: 12px; color: #6b7280; font-weight: 600; border-bottom: 1px solid #e5e7eb; }
+.admin-table td { padding: 16px 12px; border-bottom: 1px solid #f3f4f6; }
+.admin-table tr:last-child td { border-bottom: none; }
+
+.btn-action {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    transition: 0.2s;
+}
+.btn-action:hover { transform: scale(1.1); }
+
+/* =========================================
+   7. MODALS E FORMULÁRIOS
+   ========================================= */
+.modal-overlay, .popup-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    backdrop-filter: blur(4px);
+}
+
+.modal-card, .popup-container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.form-group { margin-bottom: 20px; }
+.form-label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem; }
+.form-input, .form-select, .form-textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-family: inherit;
+    transition: 0.3s;
+}
+.form-input:focus { border-color: var(--color-primary); outline: none; }
+
+.admin-form-container { max-width: 800px; margin: 40px auto; background: white; padding: 40px; border-radius: var(--radius); }
+
+/* =========================================
+   8. FOOTER
+   ========================================= */
+footer { background: var(--color-dark); color: white; padding: 60px 10%; margin-top: auto; }
+.footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
+.footer-title { margin-bottom: 20px; color: white; }
+.footer-list { list-style: none; }
+.footer-list li { margin-bottom: 10px; opacity: 0.8; }
+.footer-list li a:hover { opacity: 1; text-decoration: underline; }

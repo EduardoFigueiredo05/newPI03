@@ -4,62 +4,40 @@
 
 @section('content')
 
-    <section class="section-img-pacote">
-        <div>
-            <h1 class="hero-title-secndary">{{ $continent->name }}</h1>
-        </div>
-        
-        <div class="imgs-blocks">
-            <div class="img-overlay-pacotes">
-                <img class="img-block-1-pacotes" src="{{ asset($continent->image_cover) }}" alt="{{ $continent->name }}"
-                     onerror="this.src='https://placehold.co/800x800?text={{ $continent->name }}'">
-            </div>
-            
-            <div class="imgs-block-2">
-                <div class="img-overlay-pacotes">
-                    <img class="img-block-2-pacotes" src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800" alt="Viagem">
-                </div>
-                <div class="img-overlay-pacotes">
-                    <img class="img-block-2-pacotes" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800" alt="Viagem">
-                </div>
-            </div>
+    <section class="hero-section" style="height: 60vh; background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('{{ $continent->image_cover }}');">
+        <div class="hero-content">
+            <h1 class="hero-title">{{ $continent->name }}</h1>
+            <p class="hero-subtitle">{{ $continent->description }}</p>
         </div>
     </section>
 
-    <section class="section-pacotes-cards">
-        <div class="hero-section-pacotes" style="background: transparent;">
-            <h2 class="hero-title-secndary">Confira as melhores atrações de {{ $continent->name }}</h2>
-            <p class="hero-subtitle-secndary">
-                {{ $continent->description }}
-            </p>
-            
-            <section class="cards-container-pacotes">
-                @forelse($packages as $package)
-                    <a href="{{ route('packages.show', $package->slug) }}" class="card-pacotes">
-                        <div class="img-pacote">
-                            <img src="{{ asset($package->image_main) }}" alt="{{ $package->title }}"
-                                 onerror="this.src='https://placehold.co/600x400?text={{ $package->title }}'">
-                        </div>
-                        <h3>{{ $package->title }}</h3>
-                        <p>{{ Str::limit($package->subtitle, 40) }}</p>
-                    </a>
-                @empty
-                    <div style="width: 100%; text-align: center; grid-column: 1/-1;">
-                        <p style="font-size: 18px; color: #666;">
-                            Em breve teremos novos pacotes para {{ $continent->name }}!
-                        </p>
-                        <a href="{{ route('packages.index') }}" class="button button--primary" style="margin-top: 16px;">Ver outros destinos</a>
+    <section class="cards-container">
+        <h2 style="text-align: center; margin-bottom: 40px;">Pacotes Disponíveis</h2>
+
+        <div class="cards">
+            @forelse($packages as $package)
+                <div class="card">
+                    <div class="img-card">
+                        <img src="{{ asset($package->image_main) }}" 
+                             alt="{{ $package->title }}"
+                             onerror="this.src='https://placehold.co/600x400?text={{ $package->title }}'">
                     </div>
-                @endforelse
-            </section>
-
-            <div class="hero-section-pacotes-contact">
-                <p class="hero-subtitle-secndary">Não encontrou exatamente o que buscava? Nossa equipe está pronta para ajudar.</p>
-                <div>
-                    <button class="btn-check-more" type="button">Fale conosco</button>
+                    <div class="content-card">
+                        <h3 class="card-title">{{ $package->title }}</h3>
+                        <p class="card-description">{{ Str::limit($package->subtitle, 45) }}</p>
+                        
+                        <a href="{{ route('packages.show', $package->slug) }}" class="card-link">
+                            Ver Detalhes
+                        </a>
+                    </div>
                 </div>
-            </div>
-
+            @empty
+                <div style="grid-column: 1/-1; text-align: center; padding: 40px;">
+                    <span class="material-icons" style="font-size: 48px; color: #ccc;">sentiment_dissatisfied</span>
+                    <p style="color: #666; margin-top: 10px;">Ainda não temos pacotes cadastrados para {{ $continent->name }}.</p>
+                    <a href="{{ route('packages.index') }}" class="button button--primary" style="margin-top: 20px;">Ver outros destinos</a>
+                </div>
+            @endforelse
         </div>
     </section>
 

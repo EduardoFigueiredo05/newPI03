@@ -1,57 +1,45 @@
-/* Arquivo: css/variables.css (Versão Corrigida e Limpa) */
+/* IMPORTAÇÃO DE FONTES PREMIUM */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap');
 
 :root {
-  /* ---- CORES ---- */
-  --color-background-section: #EDEFFE; /* Cinza claro */
-  --color-background: #F8F9FA; /* Cinza bem claro (Fundo de inputs) */
-  --color-white: #ffff;
-  --color-text-dark: #131927;
-  --color-text-primary: #131927;
-  --color-text-secondary: #404040;
-  --color-text-third: #FFFF;
-  --color-brand-blue: #364FC7;
-  --color-brand-cta: #4E61F6;      /* Cor do botão de usuário no header */
-  --color-footer-background: #4E61F6; /* Lilás do Rodapé */
-  --color-border: #DEE2E6;
-  --color-danger: #e74c3c;
+    /* PALETA DE CORES  */
+    --color-brand-primary: #364FC7;    /* Azul Forte (Botões, Destaques) */
+    --color-brand-hover: #4263eb;      /* Azul um pouco mais claro para hover */
+    --color-brand-dark: #111827;       /* Quase preto (Títulos) */
+    --color-text-body: #4B5563;        /* Cinza (Textos longos) */
+    --color-background-light: #F9FAFB; /* Fundo de seções (não use branco puro em tudo) */
+    --color-white: #FFFFFF;
+    
+    /* ESPAÇAMENTOS E BORDAS */
+    --radius-sm: 8px;
+    --radius-md: 16px;                 /* Bordas mais arredondadas são tendência */
+    --radius-full: 9999px;
+    
+    /* SOMBRAS (O segredo do design 'flat' moderno) */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
 
-  /* ---- FUNDO LILÁS DA PÁGINA ---- */
-  --color-background-content: #EDEFFE; /* <-- ESTA É A CORRETA */
+/* RESET BÁSICO MELHORADO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased; /* Deixa a fonte mais nítida no Mac/Chrome */
+}
 
-  /* ---- VARIÁVEIS DA PÁGINA ADM ---- */
-  --color-admin-primary: #5850E6; /* Azul/Roxo do header e botões adm */
-  --color-success-cta: #1BB079;    /* Verde do botão Salvar */
-  --color-input-border: #CED4DA;
-  --color-input-bg: #F8F9FA;
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-background-light);
+    color: var(--color-text-body);
+    line-height: 1.6;
+}
 
-  /* Cores de componentes específicos */
-  --color-badge-text: #00875F;
-  --color-badge-bg: #E6F7F2;
-
-  /* ---- SOMBRAS ---- */
-  --shadow-card: 0px 4px 16px 0px rgba(0, 0, 0, 0.08);
-
-  /* ---- TIPOGRAFIA ---- */
-  --font-family-main: 'Inter', sans-serif;
-  
-  /* Tamanhos de Fonte */
-  --font-size-h1: 48px;
-  --font-size-card-title: 20px;
-  --font-size-nav-link: 16px;
-  --font-size-body: 14px;
-  --font-size-link: 16px;
-  --font-size-badge: 12px;
-
-  /* Pesos da Fonte */
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-
-  /* ---- BORDAS ---- */
-  --border-radius-card: 8px;
-  --border-radius-badge: 4px;
-  --border-radius-button: 12px; /* Arredondamento padrão para botões maiores (header) */
-
-  /* ---- ESPAÇAMENTOS ---- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-brand-dark);
+    font-weight: 600;
+    line-height: 1.2;
 }

@@ -36,7 +36,7 @@ return new class extends Migration
         $table->text('info_gastronomy')->nullable();
         $table->text('info_nightlife')->nullable();
 
-        $table->string('image_main'); 
+        $table->text('image_main'); 
         $table->boolean('is_active')->default(true);
         $table->timestamps();
     });
